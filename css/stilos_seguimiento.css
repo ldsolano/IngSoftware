@@ -1,0 +1,13 @@
+.fondo_index {
+    background-image: url(/img/imagen2.jpeg);
+}
+.contenedor_body {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin: 2%;
+    align-items: center;
+}
+body {
+    color: white;
+    font-weight: bold;
+}

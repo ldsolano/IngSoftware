@@ -1,0 +1,20 @@
+body {
+    color: #707070;
+    font-weight: bold;
+}
+.fondo_index {
+    background-image: url(/img/perro1.webp);
+}
+.contenedor_body {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin: 2%;
+    align-items: center;
+}
+.menu a {
+    margin: 5%;
+}
+.mensaje-index {
+    position: fixed;
+    margin: 2%;
+}

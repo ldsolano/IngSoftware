@@ -1,0 +1,18 @@
+body {
+    color: white;
+    font-weight: bold;
+}
+.fondo_index {
+    background-image: url(/img/perro3.jpg);
+}
+.formulario {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin: 2%;
+}
+.contenedor_body {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    margin: 2%;
+}
