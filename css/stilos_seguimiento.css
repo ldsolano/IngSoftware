@@ -11,3 +11,11 @@ body {
     color: white;
     font-weight: bold;
 }
+.contenedor2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+pre {
+    line-height: 0.5;
+}

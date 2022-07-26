@@ -18,6 +18,11 @@
             $registro->sitActual = "Dos patas fracturadas";
             $registro->update();**/
         ?>
+        <?php
+           /**include_once "logica/crud.php";
+            $registro = crud::getById(101);
+            $registro->delete();**/
+        ?>
     </div>
 </body>
 <footer>
