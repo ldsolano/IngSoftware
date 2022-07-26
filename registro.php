@@ -1,24 +1,13 @@
 <?php
-/**include_once "logica/crud.php";
-
-$registro = new crud();
-$registro->idingreso = 100;
-$registro->raza = "Pastor aleman";
-$registro->peso = 8;
-$registro->sitActual = "Pata delantera quebrada";
-$registro->diagnostico = "Enyesar";
-$registro->medicamentos = "Pasasetamol, antiflamatorios";
-$registro->indicaciones = "Revisar el yeso todos los días";
-$registro->esterilizacion = "No";
-$registro->create();
-$registro = new crud();
+include_once "logica/crud.php";
+/**$registro = new crud();
 $registro->idingreso = 101;
-$registro->raza = "Pitbull";
-$registro->peso = 4;
-$registro->sitActual = "Sarna";
-$registro->diagnostico = "Tratamiento para la sarna";
-$registro->medicamentos = "Ponadas y unguentos";
-$registro->indicaciones = "Linpiar todos los días en la mañana";
+$registro->raza = "Chiguagua";
+$registro->peso = 2;
+$registro->sitActual = "Quemadura en la cola";
+$registro->diagnostico = "Proteger el área quemada";
+$registro->medicamentos = "Pasasetamol, antiflamatorios";
+$registro->indicaciones = "Revisar 2 veces al día";
 $registro->esterilizacion = "Si";
 $registro->create();**/
 ?>
@@ -38,55 +27,69 @@ $registro->create();**/
         <a href="index.html">Home</a>
         <h1>Registro</h1>
     </div>
-    <form class="contenedor_formulario">
+    <form class="contenedor_formulario" method="POST" action="">
+        
         <fieldset class="formulario">
             <legend>Información del perro</legend>
             <div>
                 <div>
-                <label for="número">Número del perro:</legend>
-                <input type="text" placeholder="Número de registro" id="numRegistro">
+                <label for="número">Número del perro:</label>
+                <input type="text" placeholder="Número de registro" name="idingreso" require>
                 </div>
                 <div>
-                    <label for="raza">Raza:</legend>
-                    <input type="text" placeholder="Raza" id="raza">
+                    <label for="raza">Raza:</label>
+                    <input type="text" placeholder="Raza" name="raza" require>
                 </div>
                 <div>
-                    <label for="peso">Peso:</legend>
-                    <input type="number" placeholder="Peso" id="peso">
-                    <label for="kg">KG</legend>
+                    <label for="peso">Peso:</label>
+                    <input type="number" placeholder="Peso" name="peso"require>
+                    <label for="kg">KG</label>
                 </div>
                 <div>
                     <label for="situacion">Situación Actual:</label>
-                    <textarea id="situación"></textarea>
+                    <textarea name="sitActual" require></textarea>
                 </div>
             </div>
             <div>
                 <div>
                 <label for="diagnostico">Diagnostico:</label>
-                <textarea id="diagnostico"></textarea>
+                <textarea name="diagnostico" require></textarea>
                 </div>
                 <div>
                     <label for="Medicamentos">Medicamentos:</label>
-                    <textarea id="medicamentos"></textarea>
+                    <textarea name="medicamentos" require></textarea>
                 </div>
                 <div>
                     <label for="indicaciones">Indicaciones:</label>
-                    <textarea id="indicaciones"></textarea>
+                    <textarea name="indicaciones" require></textarea>
                 </div>
                 <div>
                     <label for="esterilizacion">Esterilización:</label>
                     <label for="checkbox1">Si</label>
-                    <input type="checkbox" name="checkbox2" id="checkbox1">
+                    <input type="checkbox" name="esterilizacion" value= "si" id="si">
                     <label for="checkbox2">No</label>
-                    <input type="checkbox" name="checkbox2" id="checkbox2">
+                    <input type="checkbox" name="esterilizacion" value= "no" id="no">
                 </div>
             </div>
-
+        <?php
+        if($_POST){
+            $registro = new crud();
+            $registro->idingreso = $_POST["idingreso"];
+            $registro->raza = $_POST["raza"];
+            $registro->peso = $_POST["peso"];
+            $registro->sitActual = $_POST["sitActual"];
+            $registro->diagnostico = $_POST["diagnostico"];
+            $registro->medicamentos = $_POST["medicamentos"];
+            $registro->indicaciones = $_POST["indicaciones"];
+            $registro->esterilizacion = $_POST["esterilizacion"];
+            $registro->create();
+        }
+        ?>
         </fieldset>
+        <div class="contenedor-boton">
+            <input type="submit" value="Guardar" class="boton">
+        </div>
     </form>
-    <div class="contenedor-boton">
-        <input type="submit" value="Guardar" class="boton">
-    </div>
 </body>
 <footer>
     <div class="footer-contenedor">

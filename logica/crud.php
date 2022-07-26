@@ -13,7 +13,7 @@ class crud extends Conexion {
     public function create(){
         $this->conectar();
         $pre = mysqli_prepare($this->con, "INSERT INTO ingreso(idingreso,raza,peso,sitActual,diagnostico,medicamentos,indicaciones,esterilizacion) VALUES (?,?,?,?,?,?,?,?)");
-        $pre->bind_param("isisssss", $this->idingreso, $this->raza, $this->peso, $this->sitActual, $this->diagnostico, $this->medicamentos, $this->indicaciones, $this->esterilizacion);
+        $pre->bind_param("isisssss", $this->idingreso , $this->raza, $this->peso, $this->sitActual, $this->diagnostico, $this->medicamentos, $this->indicaciones, $this->esterilizacion);
         $pre->execute();
     }
     //Read
