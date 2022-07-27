@@ -1,3 +1,7 @@
+<?php
+    include_once "logica/crud.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,50 +19,59 @@
         <h1>Seguimiento</h1>
     </div>
     <div class="contenedor2">
-        <form class="contenedor_formulario">
+        <form class="contenedor_formulario" method="POST" action="">
             <fieldset class="formulario">
                 <div>
                     <label for="número">Ingrese el número del perro:</legend>
-                    <input type="text" placeholder="Número de registro" id="numRegistro">
+                    <input type="text" placeholder="Número de registro" name="idingreso">
                 </div>
                 <div class="new">
-                    <input type="submit" value="Nueva Busqueda" class="boton">
+                    <input type="submit" value="Busqueda" class="boton">
                 </div>
                 <div>
                     <label for="número">El perro se encuentra esterelizado:</legend>
-                    <input type="text" placeholder="Número de registro" id="numRegistro">
+                    <div class="despliegue1">
+                        <?php
+                        /**$registro = crud::getById($_POST["idingreso"]);
+                        echo "<pre>";
+                        echo "Esterelizado: ", ($registro->esterilizacion);
+                        echo "<pre>";**/
+                        ?>
+                    </div>
                 </div>          
             </fieldset>
         </form>
-        <div>
+        <div class="despliegue2">
             <?php
-            include_once "logica/crud.php";
-                $registro = crud::getById(101);
+            if($_POST){
+                $registro = crud::getById($_POST["idingreso"]);
                 echo "<pre>";
-                echo ($registro->raza);
-                echo "</pre>";
+                echo "Raza: ", ($registro->raza);
                 echo "<pre>";
-                print_r ($registro->peso);
-                echo "</pre>";
-                print_r ($registro->sitActual);
+                echo "<pre>";
+                echo "Peso: ", ($registro->peso);
                 echo "</pre>";
                 echo "<pre>";
-                print_r ($registro->diagnostico);
+                echo "Situación Actual: ", ($registro->sitActual);
                 echo "</pre>";
                 echo "<pre>";
-                print_r ($registro->medicamentos);
+                echo "Diaganostico: ", ($registro->diagnostico);
                 echo "</pre>";
                 echo "<pre>";
-                print_r ($registro->indicaciones);
+                echo "Medicamentos: ", ($registro->medicamentos);
                 echo "</pre>";
                 echo "<pre>";
-                print_r ($registro->esterilizacion);
+                echo "Indicaciones: ", ($registro->indicaciones);
                 echo "</pre>";
+                echo "<pre>";
+                echo "Esterilización: ", ($registro->esterilizacion);
+                echo "</pre>";
+            }
             ?>
         </div>
     </div>
     <div>
-        <input type="submit" value="Editar" class="boton">
+        <a class="boton" href="actualizar.php">Editar</a>
     </div>
 </body>
 <footer>
