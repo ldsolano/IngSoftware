@@ -1,3 +1,14 @@
 .fondo_index {
     background-image: url(/img/perro4.webp);
+    margin: 2rem;
+}
+.formulario-actualizar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    gap: 2rem;
+}
+.form-modif {
+    display: grid;
+    row-gap: 2rem;
 }

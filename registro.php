@@ -66,9 +66,9 @@ $registro->create();**/
                 <div>
                     <label for="esterilizacion">Esterilización:</label>
                     <label for="checkbox1">Si</label>
-                    <input type="checkbox" name="esterilizacion" value= "si" id="si">
+                    <input type="checkbox" name="esterilizacion" value= "SI" id="si">
                     <label for="checkbox2">No</label>
-                    <input type="checkbox" name="esterilizacion" value= "no" id="no">
+                    <input type="checkbox" name="esterilizacion" value= "NO" id="no">
                 </div>
             </div>
         <?php
