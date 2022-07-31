@@ -14,6 +14,7 @@
 </head>
 <body class="fondo_index">
     <div class="contenedor_body">
+    <h1>Rescatado y Saludable</h1>
         <h1>Actualizar</h1>
         <a href="index.html">Home</a>
         <div class="formulario-actualizar">
@@ -54,39 +55,48 @@
             <div class="form-modif">
                 <form method="POST" action="">
                     <div>
+                        <label for="número">Ingrese el número del perro para cambiar la información:</label>
+                        <input type="text" placeholder="Número de registro" name="idingresoC">
+                    </div>
+                    <div>
                         <label for="situacion">Situación Actual:</label>
-                        <textarea name="sitActual" require></textarea>
+                        <textarea name="sitActualC" require></textarea>
                     </div>
                     <div>
                         <label for="diagnostico">Diagnostico:</label>
-                        <textarea name="diagnostico" require></textarea>
+                        <textarea name="diagnosticoC" require></textarea>
                     </div>
                     <div>
                         <label for="Medicamentos">Medicamentos:</label>
-                        <textarea name="medicamentos" require></textarea>
+                        <textarea name="medicamentosC" require></textarea>
                     </div>
                     <div>
                     <label for="indicaciones">Indicaciones:</label>
-                    <textarea name="indicaciones" require></textarea>
+                    <textarea name="indicacionesC" require></textarea>
                     </div>
+                    <?php
+                    include_once "logica/crud.php";
+                    if($_GET){
+                        $registro = crud::getById($_GET["idingresoC"]);
+                        $registro->sitActual = $_GET["sitActualC"];
+                        $registro->diagnostico = $_GET["diagnosticoC"];
+                        $registro->medicamentos = $_GET["medicamentosC"];
+                        $registro->indicaciones = $_GET["indicacionesC"];
+                        $registro->update();
+                    }
+                    ?>
                 </form>
             </div>
         </div>
         <?php
             /**include_once "logica/crud.php";
-            $registro = crud::getById(100);
-            $registro->sitActual = "Dos patas fracturadas";
+            $registro = crud::getById(102);
+            $registro->sitActual = "Desnutrición";
+            $registro->diagnostico = "Agregar vitaminas a sus alimentos";
+            $registro->medicamentos = "Vitaminas";
+            $registro->indicaciones = "Suminstrar vitaminas en las 3 comidas";
+
             $registro->update();**/
-        ?>
-        <?php
-        /**if($_POST){
-            $registro = crud::getById($_POST["idingreso"]);
-            $registro->sitActual = $_POST["sitActual"];
-            $registro->diagnostico = $_POST["diagnostico"];
-            $registro->medicamentos = $_POST["medicamentos"];
-            $registro->indicaciones = $_POST["indicaciones"];
-            $registro->update();
-        }**/
         ?>
         <?php
            /**include_once "logica/crud.php";
@@ -94,7 +104,7 @@
             $registro->delete();**/
         ?>
          <div class="contenedor-boton">
-            <input type="submit" value="Guardar" class="boton">
+            <input type="submit" value="Modificar" class="boton">
         </div>
     </div>
 </body>
